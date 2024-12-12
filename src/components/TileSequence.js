@@ -13,6 +13,13 @@ export default function TileSequence() {
   const [sequences, setSequences] = useState(SEQUENCES);
   const [isPreviewPlaying, setIsPreviewPlaying] = useState(false);
 
+  // Update currentIndex if it's out of bounds after removing tiles
+  useEffect(() => {
+    if (currentIndex >= sequences.length) {
+      setCurrentIndex(Math.max(0, sequences.length - 1));
+    }
+  }, [sequences.length, currentIndex]);
+
   const handlePrev = () => {
     setCurrentIndex(prev => (prev > 0 ? prev - 1 : prev));
   };
@@ -50,7 +57,13 @@ export default function TileSequence() {
     e.stopPropagation(); // Prevent tile click event
     const newSequences = sequences.filter((_, i) => i !== index);
     setSequences(newSequences);
-    if (currentIndex >= index && currentIndex > 0) {
+
+    // Adjust currentIndex when removing tiles
+    if (index <= currentIndex && currentIndex > 0) {
+      setCurrentIndex(prev => prev - 1);
+    }
+    // If removing last tile, move to previous
+    if (index === sequences.length - 1 && currentIndex === index) {
       setCurrentIndex(prev => prev - 1);
     }
   };
