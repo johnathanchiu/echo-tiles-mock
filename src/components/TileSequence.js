@@ -28,12 +28,14 @@ export default function TileSequence() {
         handlePrev();
       } else if (e.key === 'ArrowRight') {
         handleNext();
+      } else if (e.key === 'Escape' && isPreviewPlaying) {
+        setIsPreviewPlaying(false);
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [isPreviewPlaying]);
 
   // Handle tile click
   const handleTileClick = (index) => {
