@@ -2,6 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import SEQUENCES from '@/mock/sequences';
+import { IoClose } from "react-icons/io5";
+import { IoPlayCircleOutline } from "react-icons/io5";
+import { IoChevronForward, IoChevronBack } from "react-icons/io5";
+import { IoExpandOutline } from "react-icons/io5";
 
 export default function TileSequence() {
 
@@ -78,9 +82,7 @@ export default function TileSequence() {
               className="absolute top-4 right-4 p-2 rounded-lg bg-black/30 hover:bg-black/50
                        text-gray-300 hover:text-white transition-all duration-200"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
+              <IoClose className="w-6 h-6" />
             </button>
           </div>
         </div>
@@ -97,9 +99,7 @@ export default function TileSequence() {
             ? 'opacity-50 cursor-not-allowed'
             : 'hover:bg-gray-700/50 hover:scale-110'}`}
       >
-        <svg className="w-8 h-8 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-        </svg>
+        <IoChevronBack className="w-8 h-8 text-gray-300" />
       </button>
 
       <div className="flex flex-col items-center">
@@ -147,9 +147,7 @@ export default function TileSequence() {
                                backdrop-blur-sm transition-all duration-200
                                text-red-300 hover:text-red-200"
                     >
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
+                      <IoClose className="w-5 h-5" />
                     </button>
 
                     {/* Expand Button */}
@@ -158,10 +156,7 @@ export default function TileSequence() {
                                backdrop-blur-sm transition-all duration-200
                                text-gray-300 hover:text-gray-200"
                     >
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                          d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
-                      </svg>
+                      <IoExpandOutline className="w-5 h-5" />
                     </button>
                   </div>
 
@@ -228,12 +223,7 @@ export default function TileSequence() {
                 : 'bg-indigo-500/20 hover:bg-indigo-500/30 border-indigo-500/50 hover:border-indigo-400/50 text-indigo-300 hover:text-indigo-200'}
             `}
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
+            <IoPlayCircleOutline className="w-5 h-5" />
             {isPreviewPlaying ? 'Generating...' : 'Preview Scene'}
           </button>
         </div>
@@ -250,9 +240,7 @@ export default function TileSequence() {
             ? 'opacity-50 cursor-not-allowed'
             : 'hover:bg-gray-700/50 hover:scale-110'}`}
       >
-        <svg className="w-8 h-8 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
+        <IoChevronForward className="w-8 h-8 text-gray-300" />
       </button>
     </div>
   );
